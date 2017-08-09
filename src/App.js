@@ -4,6 +4,7 @@ import getSampleData from './data/sampleData'
 
 import Header from './components/Header/Header';
 import ShoeListContainer from './components/ShoeListContainer/ShoeListContainer';
+import ShoeInfo from './components/ShoeInfo/ShoeInfo';
 
 class App extends Component {
   constructor() {
@@ -19,7 +20,8 @@ class App extends Component {
     const sampleData = getSampleData();
 
     this.setState({
-      shoes: sampleData
+      shoes: sampleData,
+      visibleShoes: sampleData
     })
   }
 
@@ -27,7 +29,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <ShoeListContainer shoes={this.state.shoes}/>
+        {/*<ShoeListContainer shoes={this.state.visibleShoes}/>*/}
+        <ShoeInfo shoe={this.state.visibleShoes["shoe_1"]} />
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Shoe from '../Shoe/Shoe';
 
@@ -13,7 +14,7 @@ class ShoeListContainer extends React.Component {
         return (
             <div className="ShoeListContainer">
                 <h3>Shoe List Container</h3>
-                { Object.keys(this.props.shoes).map(this.renderShoes) }
+                { Object.keys(this.props.shoes).map((this.renderShoes)) }
             </div>
         );
     }
@@ -22,9 +23,13 @@ class ShoeListContainer extends React.Component {
         const shoe = this.props.shoes[key];
 
         return (
-                <Shoe key={shoe.id} brand={shoe.brand} model={shoe.model} />
+                <Shoe key={shoe.id} shoe={shoe} />
         );
     }
+}
+
+ShoeListContainer.propTypes = {
+    shoes: PropTypes.object.isRequired
 }
 
 export default ShoeListContainer;
