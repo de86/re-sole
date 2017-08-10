@@ -10,27 +10,20 @@ class App extends Component {
   constructor() {
     super();
 
-    this.state = {
-      shoes: {},
-      visibleShoes: {}
-    };
-  }
-
-  componentDidMount() {
     const sampleData = getSampleData();
 
-    this.setState({
+    this.state = {
       shoes: sampleData,
       visibleShoes: sampleData
-    })
+    };
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        {/*<ShoeListContainer shoes={this.state.visibleShoes}/>*/}
-        <ShoeInfo shoe={this.state.visibleShoes["shoe_1"]} />
+        {/*<ShoeListContainer shoes={this.state.visibleShoes} />*/}
+        <ShoeInfo shoe={this.state.visibleShoes["shoe_3"]} />
       </div>
     );
   }
