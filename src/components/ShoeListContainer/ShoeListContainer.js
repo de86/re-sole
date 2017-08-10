@@ -23,7 +23,7 @@ class ShoeListContainer extends React.Component {
         const shoe = this.props.shoes[key];
 
         return (
-                <Shoe key={shoe.id} shoe={shoe} />
+            <Shoe key={shoe.id} shoe={shoe} />
         );
     }
 }

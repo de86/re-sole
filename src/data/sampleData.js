@@ -1,7 +1,7 @@
 function getSampleData() {
     const shoes = {
         shoe_1: {
-            id: 1,
+            id: "shoe_1",
             brand: 'Nike',
             model: 'Air Max',
             availSizes: [5, 6, 7, 8, 9, 10, 11],
@@ -15,7 +15,7 @@ function getSampleData() {
             ]
         },
         shoe_2: {
-            id: 2,
+            id: "shoe_2",
             brand: 'Nike',
             model: 'Zoom',
             availSizes: [5, 6, 7, 8, 9, 10, 11],
@@ -24,7 +24,7 @@ function getSampleData() {
             images: ['resources/images/nike_zoom_grey-orange.jpg']
         },
         shoe_3: {
-            id: 3,
+            id: "shoe_3",
             brand: 'Adidas',
             model: 'Questar Boost',
             availSizes: [7, 8, 9, 11],
@@ -33,7 +33,7 @@ function getSampleData() {
             images: ['resources/images/adidas_questar_boost_blue.jpg']
         },
         shoe_4: {
-            id: 4,
+            id: "shoe_4",
             brand: 'Adidas',
             model: 'Originals',
             availSizes: [6, 7, 8, 9, 10],
@@ -45,7 +45,7 @@ function getSampleData() {
             ]
         },
         shoe_5: {
-            id: 5,
+            id: "shoe_5",
             brand: 'Reebok',
             model: 'Classic',
             availSizes: [8, 9, 10, 11],
@@ -54,7 +54,7 @@ function getSampleData() {
             images: ['resources/images/reebok_classic_slate-blue.jpg']
         },
         shoe_6: {
-            id: 6,
+            id: "shoe_6",
             brand: 'Reebok',
             model: 'Everchill',
             availSizes: [6, 7, 8, 9, 10, 11],

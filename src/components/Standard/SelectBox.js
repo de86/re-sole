@@ -5,8 +5,8 @@ const SelectBox = (props) => {
 
     return (
         <div>
-            <label htmlFor="shoe-sizes">Select Size:</label>
-            <select name="shoe-sizes">
+            <label htmlFor={ props.name }>{props.label}</label>
+            <select name={ props.name }>
                 {
                     props.sizes.map((size) => {
                         return (
@@ -14,7 +14,6 @@ const SelectBox = (props) => {
                         )
                     })
                 }
-                {/*<option value="1">1</option>*/}
             </select>
         </div>
     );

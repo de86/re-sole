@@ -3,12 +3,13 @@ import React, { Component } from 'react';
 import getSampleData from './data/sampleData'
 
 import Header from './components/Header/Header';
-import ShoeListContainer from './components/ShoeListContainer/ShoeListContainer';
-import ShoeInfo from './components/ShoeInfo/ShoeInfo';
+import Routes from './components/Routes/Routes';
 
 class App extends Component {
   constructor() {
     super();
+
+    this.getShoes = this.getShoes.bind(this);
 
     const sampleData = getSampleData();
 
@@ -22,10 +23,15 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {/*<ShoeListContainer shoes={this.state.visibleShoes} />*/}
-        <ShoeInfo shoe={this.state.visibleShoes["shoe_3"]} />
+        <Routes 
+          visibleShoes={ this.state.visibleShoes }
+          getShoes={ this.getShoes } />
       </div>
     );
+  }
+
+  getShoes() {
+    return this.state.shoes;
   }
 }
 
