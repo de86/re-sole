@@ -14,8 +14,8 @@ class ShoeInfo extends React.Component {
                 <h2>{`${shoe.brand} ${shoe.model}`}</h2>
                 <img src={ require(`../../${shoe.images[0]}`) } alt={`${shoe.brand} ${shoe.model}`}/>
                 <span className="price">{ Utils.formatPrice(shoe.price) }</span>
-                <SelectBox label="Shoe Size" name="shoe-size" sizes={shoe.availSizes} />
-                <SelectBox label="Colour" name="colour" sizes={shoe.availColours} />
+                <SelectBox label="Shoe Size" name="shoe-size" values={shoe.availSizes} />
+                <SelectBox label="Colour" name="colour" values={shoe.availColours} />
                 <button name="add-to-basket">+ Add To Basket</button>
             </div>
         )
@@ -23,7 +23,6 @@ class ShoeInfo extends React.Component {
 }
 
 ShoeInfo.propTypes = {
-    shoe: PropTypes.object.isRequired,
     getShoes: PropTypes.func.isRequired
 }
 

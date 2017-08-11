@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import getSampleData from './data/sampleData'
 
@@ -10,6 +11,7 @@ class App extends Component {
     super();
 
     this.getShoes = this.getShoes.bind(this);
+    this.setVisibleShoes = this.setVisibleShoes.bind(this);
 
     const sampleData = getSampleData();
 
@@ -19,20 +21,35 @@ class App extends Component {
     };
   }
 
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <Routes 
-          visibleShoes={ this.state.visibleShoes }
-          getShoes={ this.getShoes } />
-      </div>
-    );
-  }
-
   getShoes() {
     return this.state.shoes;
   }
+
+  getVisibleShoes() {
+    return this.state.visibleShoes;
+  }
+
+  setVisibleShoes(updatedVisibleShoes) {
+    let visibleShoes = {...this.state.visibleShoes}
+    visibleShoes = updatedVisibleShoes;
+    this.setState = { visibleShoes }
+  }
+
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Header />
+          <Routes 
+            visibleShoes={ this.state.visibleShoes }
+            getShoes={ this.getShoes }
+            setVisibleShoes={ this.setVisibleShoes } />
+        </div>
+      </Router>
+    );
+  }
+
+  
 }
 
 export default App;
