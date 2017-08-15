@@ -16,8 +16,10 @@ class BasketShoe extends React.Component {
         return (
             <div key={ this.props.basketId } className="basket-shoe">
                 <h3>{ `${shoe.brand} ${shoe.model}` }</h3>
-                <img src={ require(`../../${shoe.images[0]}`) } alt={`${shoe.brand} ${shoe.model}`}/>
-                <span className="shoe-price">{ Utils.formatPrice(shoe.price) }</span>
+                <img src={ require(`../../${shoe.images[this.props.colour]}`) } alt={`${shoe.brand} ${shoe.model}`}/>
+                <span>{ this.props.size }</span><br/>
+                <span>{ this.props.colour }</span><br/>
+                <span className="shoe-price">{ Utils.formatPrice(shoe.price) }</span><br/>
                 <button onClick={ this.clickHandler }>Remove From Basket</button>
             </div>
         )

@@ -8,7 +8,6 @@ class Basket extends React.Component {
         super()
 
         this.renderShoes = this.renderShoes.bind(this);
-        this.clickHandler = this.clickHandler.bind(this);
     }
 
     render() {
@@ -22,22 +21,23 @@ class Basket extends React.Component {
         )
     }
 
+    /*
+     * Render each shoe in our shopping basket
+     */
     renderShoes(key) {
         const shoes = this.props.getShoes();
-        const basket = this.props.basket;
-        const shoe = shoes[basket[key].id];
+        const shoe = shoes[this.props.basket[key].id];
+        const selectedShoe = this.props.basket[key];
 
         return (
             <BasketShoe
                 key={ key }
                 removeFromBasket={ this.props.removeFromBasket }
                 shoe={ shoe }
+                size={ selectedShoe.size }
+                colour={ selectedShoe.colour }
                 basketId={ key } />
         );
-    }
-
-    clickHandler() {
-        console.log("Deleted");
     }
 }
 

@@ -7,11 +7,7 @@ class SelectBox extends React.Component {
 
         this.updateParentState = this.updateParentState.bind(this);
     }
-
-    componentDidMount() {
-        this.updateParentState();
-    }
-
+    
     render() {
         return (
             <div>

@@ -9,23 +9,32 @@ class ShoeInfo extends React.Component {
         super();
 
         this.clickHandler = this.clickHandler.bind(this);
+        this.setShoe = this.setShoe.bind(this);
         this.setSize = this.setSize.bind(this);
         this.setColour = this.setColour.bind(this);
 
         this.state = {
+            shoe: {},
             size: null,
             colour: null
         }
     }
 
-    render() {
+    componentWillMount() {
         const shoe = this.props.getShoes()[this.props.match.params.shoeId];
+        this.setShoe(shoe);
+        this.setSize(shoe.availSizes[0]);
+        this.setColour(shoe.availColours[0]);
+    }
+
+    render() {
+        const shoe = this.state.shoe;
 
         return (
             <div className="shoe-info">
                 <h2>{ `${shoe.brand} ${shoe.model}` }</h2>
                 <img
-                    src={ require(`../../${shoe.images[0]}`) }
+                    src={ require(`../../${shoe.images[this.state.colour]}`) }
                     alt={ `${shoe.brand} ${shoe.model}` }/>
                 <span className="price">{ Utils.formatPrice(shoe.price) }</span>
                 <SelectBox
@@ -62,8 +71,17 @@ class ShoeInfo extends React.Component {
      */
     setColour(updatedColour) {
         let colour = {...this.state.colour};
-        colour = updatedColour;
+        colour = updatedColour.toLowerCase();
         this.setState({ colour });
+    }
+
+    /*
+     * Save the current shoe we are viewing in state
+     */
+    setShoe(updatedShoe) {
+        let shoe = {...this.state.shoe};
+        shoe = updatedShoe;
+        this.setState({ shoe })
     }
 
     /*
