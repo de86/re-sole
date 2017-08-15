@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "prop-types": "^15.5.10",
-    "react-scripts": "1.0.10"
+    "react-scripts": "1.0.10",
+    "shortid": "^2.2.8"
   },
   "scripts": {
     "start": "react-scripts start",

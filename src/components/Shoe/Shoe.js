@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Utils from '../../resources/js/utils';
 
+// THIS SHOULD BE A STATELESS COMPONENT
 class Shoe extends React.Component {
     render() {
         const shoe = this.props.shoe;

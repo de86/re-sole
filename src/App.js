@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import shortid from 'shortid';
 
 import getSampleData from './data/sampleData'
 
@@ -12,12 +13,16 @@ class App extends Component {
 
     this.getShoes = this.getShoes.bind(this);
     this.setVisibleShoes = this.setVisibleShoes.bind(this);
+    this.getBasketQuantity = this.getBasketQuantity.bind(this);
+    this.addToBasket = this.addToBasket.bind(this);
+    this.removeFromBasket = this.removeFromBasket.bind(this);
 
     const sampleData = getSampleData();
 
     this.state = {
       shoes: sampleData,
-      visibleShoes: sampleData
+      visibleShoes: sampleData,
+      basket: {}
     };
   }
 
@@ -35,21 +40,40 @@ class App extends Component {
     this.setState = { visibleShoes }
   }
 
+  getBasketQuantity() {
+    return Object.keys(this.state.basket).length;
+  }
+
+  addToBasket(shoe) {
+    let basket = { ...this.state.basket };
+    const basketItemId = `item-${shortid.generate()}`
+
+    basket[basketItemId] = shoe;
+    this.setState({ basket });
+  }
+
+  removeFromBasket(basketId) {
+    let basket = this.state.basket;
+    delete basket[basketId];
+    this.setState({ basket });
+  }
+
   render() {
     return (
       <Router>
         <div className="App">
-          <Header />
-          <Routes 
+          <Header getBasketQuantity={ this.getBasketQuantity } />
+          <Routes
+            basket={ this.state.basket }
             visibleShoes={ this.state.visibleShoes }
             getShoes={ this.getShoes }
-            setVisibleShoes={ this.setVisibleShoes } />
+            setVisibleShoes={ this.setVisibleShoes }
+            addToBasket={ this.addToBasket }
+            removeFromBasket={ this.removeFromBasket } />
         </div>
       </Router>
     );
   }
-
-  
 }
 
 export default App;

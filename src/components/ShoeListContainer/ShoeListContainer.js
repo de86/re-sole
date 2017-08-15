@@ -21,6 +21,9 @@ class ShoeListContainer extends React.Component {
         );
     }
 
+    /*
+     * Renders each individual shoe thumbnail in our list
+     */
     renderShoes(key) {
         const shoe = this.props.visibleShoes[key];
 
